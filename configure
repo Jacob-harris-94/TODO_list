@@ -1,0 +1,5 @@
+#!/bin/bash
+py -m virtualenv ./venv
+
+echo "Done!"
+echo "Now, run 'source venv/Scripts/activate' to activate venv."
