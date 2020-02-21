@@ -7,3 +7,4 @@ next, I need to make this pull from requirements.txt
 
 ### top issues
 * connecting to the db with `conn = psycopg2.connect("dbname=todo user=postgres")` makes a *lot* of assumptions.
+* prevent SQL injection
