@@ -32,9 +32,10 @@ def add_todo(todo_text="default text", due_date=None):
 
 
 def get_list(num_items_to_get=3, sort_by_date_created=None, sort_by_date_due=None):
+    print(f"trying to get {num_items_to_get} items...")
     conn = psycopg2.connect("dbname=todo user=postgres")
     cur = conn.cursor()
-    cur.execute("SELECT id, description, time_created::date, time_due::date FROM todo.item LIMIT %s;", (num_items_to_get,))
+    cur.execute("SELECT id, time_created::date, time_due::date, description FROM todo.item LIMIT %s;", (num_items_to_get,))
     results =  cur.fetchall()
     conn.commit()
     cur.close()
