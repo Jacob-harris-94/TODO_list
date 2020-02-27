@@ -34,15 +34,19 @@ def main():
         else:
             add_todo(args.description)
     elif args.subparser_name == 'init':
-        print("init! this is SUPER DESTRUCTIVE right now, update later...")
-        wipe_test = input("are you 1000000% sure you want to wipe everything? \nif so, type 'yes, wipe it'\n")
-        if wipe_test == "yes, wipe it":
+        if args.force:
             init()
             print("wiped!")
         else:
-            print("not today!")
+            print("init! this is SUPER DESTRUCTIVE right now, update later...")
+            wipe_test = input("are you 1000000% sure you want to wipe everything? \nif so, type 'yes, wipe it'\n")
+            if wipe_test == "yes, wipe it":
+                init()
+                print("wiped!")
+            else:
+                print("not today!")
     else:
-        print(args)
+        print("use --help for usage guide")
 
 if __name__ == "__main__":
     main()

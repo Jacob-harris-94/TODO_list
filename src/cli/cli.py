@@ -14,8 +14,9 @@ def parse():
     # create the parser for the "add" command
     parser_add = subparsers.add_parser('add', help='add new todo items')
     parser_add.add_argument('description', type=str, help='description help')
-    parser_add.add_argument('--due', type=str, help='date-time in any reasonable format?')
+    parser_add.add_argument('--due', type=str, help='date-time in ISO-8061')
     # create the parser for the "init" command
-    parser_add = subparsers.add_parser('init', help='initialize the todo list')
+    parser_init = subparsers.add_parser('init', help='initialize the todo list')
+    parser_init.add_argument('-f', '--force', help='force initialization', action='store_true')
     args = parser.parse_args()
     return args
